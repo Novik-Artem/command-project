@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./styles.module.scss";
-import Logo from "../../atoms/Logo/index";
-import Burger from "../../molecules/Burger/index";
+import Logo from "../../atoms/Logo";
+import Burger from "../../molecules/Burger";
 
 function Header() {
   return (

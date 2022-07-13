@@ -1,18 +1,27 @@
 import React from "react";
-import MainPage from "./Components/pages/MainPage";
-import CardsPage from "./Components/pages/CardsPage";
+import MainPage from "./components/pages/MainPage";
+import CardsPage from "./components/pages/CardsPage";
+import Header from "./components/organisms/Header";
+import Footer from "./components/organisms/Footer";
+import style from "./assets/styles/null.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/cardsPage" element={<CardsPage />} />
-        </Routes>
-      </div>
-    </Router>
+    <>
+      <Router>
+        <div className={style.wrapper}>
+          <Header />
+          <div className={style.main}>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/cards-page" element={<CardsPage />} />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
+      </Router>
+    </>
   );
 }
 
