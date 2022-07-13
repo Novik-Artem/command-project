@@ -1,0 +1,16 @@
+import React from "react";
+import style from "./styles.module.scss";
+import img from "../../../assets/images/logo.webp";
+import LazyLoad from "react-lazy-load";
+
+function Logo() {
+  return (
+    <div className={style.logo}>
+      <LazyLoad>
+        <img src={img} className={style.image}></img>
+      </LazyLoad>
+    </div>
+  );
+}
+
+export default Logo;

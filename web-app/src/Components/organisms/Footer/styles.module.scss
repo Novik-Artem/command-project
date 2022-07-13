@@ -1,0 +1,12 @@
+@import "../../../assets/styles/index.scss";
+
+.footer{
+    @include container;
+    display: flex;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-between;
+    .year, .mail {
+        @include H16;
+    }
+}
