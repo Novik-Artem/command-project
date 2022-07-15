@@ -588,14 +588,26 @@ const router: Router = express.Router();
 //  return res.status(200).json("ok");
 //});
 
+//router.get("/characters", async (req: Request, res: Response) => {
+//  try {
+//    const characters = await Character.find();
+//    return res.status(200).json(characters);
+//  } catch (error) {
+//    console.log(error);
+//    return res.status(500).json(error);
+//  }
+//});
+
+import UC from "../../usecases";
 router.get("/characters", async (req: Request, res: Response) => {
-  try {
-    const characters = await Character.find();
-    return res.status(200).json(characters);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json(error);
+  // const error = undefined
+  // const value = true
+  const { value, error } = await UC.EmployeesService.getCharacters();
+  if (error) {
+    res.status(500).json(error || new Error("UC undefined error"));
+    return;
   }
+  res.status(200).json(value);
 });
 
 export default router;
