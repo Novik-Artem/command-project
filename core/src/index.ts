@@ -1,10 +1,10 @@
-import { AppDataSource } from "./data-source";
+import repository from "./repository";
 import app from "./delivery";
 
 const PORT = 7000;
 
-AppDataSource.initialize()
-  .then(async () => {
-    app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
-  })
-  .catch((error) => console.log(error));
+async function main() {
+  await repository.connect();
+  await app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
+}
+main();

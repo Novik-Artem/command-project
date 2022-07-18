@@ -1,6 +1,8 @@
 import express, { Router, Request, Response } from "express";
 
 const router: Router = express.Router();
+import cors from "cors"
+router.use(cors());
 
 //const characters = [
 //  {
@@ -599,7 +601,9 @@ const router: Router = express.Router();
 
 import UC from "../../usecases";
 
-router.get("/characters", async (req: Request, res: Response) => {
+
+
+router.get("/characters", cors(), async (req: Request, res: Response) => {
 	
   const { value, error } = await UC.APICharacters.getCharacters();
   if (error) {
