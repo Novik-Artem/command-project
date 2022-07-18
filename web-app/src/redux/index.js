@@ -1,5 +1,9 @@
-import { createStore } from "redux"
-import reducers from "./reducers"
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import cardinfo from "./reducers/card-info";
 
-const store = createStore(reducers)
-export default store
+const reducer = combineReducers({ cardinfo });
+
+export const setupStore = () => {
+  return configureStore({ reducer });
+};
+export default setupStore;

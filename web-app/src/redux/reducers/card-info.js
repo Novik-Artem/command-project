@@ -1,16 +1,22 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = {
   cardinfo: [
     {
-        name: "Max",
-        data: "13.07.2022"
-    }
-  ]
+      name: "Max",
+      data: "13.07.2022",
+    },
+  ],
+  number: 1,
 };
 
-const cardinfo = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
-export default cardinfo;
+export const cardinfo = createSlice({
+  name: "cardinfo",
+  initialState,
+  reducers: {
+    setNumber(state, action) {
+      state.number = action.payload;
+    },
+  },
+});
+export default cardinfo.reducer;

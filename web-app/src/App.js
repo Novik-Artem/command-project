@@ -3,7 +3,7 @@ import MainPage from "./components/pages/MainPage";
 import CardsPage from "./components/pages/CardsPage";
 import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
-import style from "./assets/styles/null.scss";
+import style from "./app.module.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {

@@ -1,11 +1,7 @@
 @import "../../../assets/styles/index.scss";
 
-.header{
-    @include container;
-    width: 100%;
+.wrapper{
     display: flex;
-    gap: 5rem;
-    height: 5rem;
     align-items: center;
     justify-content: space-between;
 }
