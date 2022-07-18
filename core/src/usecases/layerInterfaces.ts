@@ -1,3 +1,3 @@
-export interface IEmployeesService {
+//export interface IEmployeesService {
 	
-}
+//}

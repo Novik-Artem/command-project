@@ -1,5 +1,4 @@
 import express, { Router, Request, Response } from "express";
-import { Character } from "../../entity/Character";
 
 const router: Router = express.Router();
 
@@ -599,10 +598,10 @@ const router: Router = express.Router();
 //});
 
 import UC from "../../usecases";
+
 router.get("/characters", async (req: Request, res: Response) => {
-  // const error = undefined
-  // const value = true
-  const { value, error } = await UC.EmployeesService.getCharacters();
+	
+  const { value, error } = await UC.APICharacters.getCharacters();
   if (error) {
     res.status(500).json(error || new Error("UC undefined error"));
     return;
