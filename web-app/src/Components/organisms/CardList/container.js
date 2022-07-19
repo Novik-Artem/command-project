@@ -10,18 +10,17 @@ const CardContainer = () => {
   useEffect(() => {
     dispatch(getCharactersFromApi());
   }, []);
-  const { char_id, img, name, birthday, status } = useSelector(
+  const persons = useSelector(
     (state) => state.cardinfo.characters
   );
-  
   return (
     <Card
-      char_id={char_id}
-      img={img}
-      name={name}
-      birthday={birthday}
-      status={status}
-      key= {char_id}
+      char_id={persons.char_id}
+      img={persons.img}
+      name={persons.name}
+      birthday={persons.birthday}
+      status={persons.status}
+      key= {persons.char_id}
     />
   );
 };
