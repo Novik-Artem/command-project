@@ -6,4 +6,5 @@ class DB {
     this.connector = connector;
   }
 }
+
 export default new DB();
