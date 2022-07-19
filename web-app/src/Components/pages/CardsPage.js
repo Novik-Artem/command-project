@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../organisms/Card";
+import CardList from "../organisms/CardList";
 import Search from "../organisms/Search";
 import CardsHead from "../organisms/CardsHead";
 
@@ -8,7 +8,7 @@ function CardsPage() {
     <div>
       <Search />
       <CardsHead/>
-      <Card />
+      <CardList />
     </div>
   );
 }
