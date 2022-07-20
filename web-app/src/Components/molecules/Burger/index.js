@@ -6,16 +6,12 @@ import { Link } from "react-router-dom";
 
 function Burger() {
   return (
-    <div>
-      <Link to="/cards-page" className={style.catalog}>
-        <div className={style.svg}>
-          <LazyLoad>
-            <img src={img}></img>
-          </LazyLoad>
-        </div>
-        <div className={style.text}>Каталог</div>
-      </Link>
-    </div>
+    <Link to="/cards-page" className={style.catalog}>
+      <LazyLoad>
+        <img src={img}></img>
+      </LazyLoad>
+      <div className={style.text}>Каталог</div>
+    </Link>
   );
 }
 

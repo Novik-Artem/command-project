@@ -1,13 +1,19 @@
 import React from "react";
 import style from "./styles.module.scss";
 import Card from "../Card";
-import { characters } from "../../../redux/reducers/card-info";
 
-function CardList() {
+function CardList({persons}) {
   return (
     <div className={style.cards}>
-      {characters.map((card) => (
-        <Card />
+      {persons.map((card) => (
+        <Card
+          id={card.char_id}
+          img={card.img}
+          name={card.name}
+          birthday={card.birthday}
+          status={card.status}
+          key={card.char_id}
+        />
       ))}
     </div>
   );
