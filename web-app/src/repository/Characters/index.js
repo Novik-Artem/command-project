@@ -7,7 +7,7 @@ class Caracters {
         error: null
     }
     try {
-      const response =  await Connector.connector.get("/characters");
+      const response =  await Connector.connector.get("characters?limit=9");
       result.value = response.data;
     } catch (error) {
       result.error = error;
