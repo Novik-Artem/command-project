@@ -8,14 +8,15 @@ export const AppDataSource = new DataSource({
   username: "qnvhywpfazsbze",
   password: "72b93f0273eb2affdb53a8e9576bd40244b82136f2e02c9a451aac8fc112f8e5",
   database: "d34le7sj0d8sbn",
-  synchronize: true,
+  synchronize: false,
   logging: false,
-  entities: ["src/entity/**/*.ts", "./entity/**/*.js"],
-  migrations: [],
+  entities: ["src/entity/**/*.ts"],
+	migrations: ["src/migration/**/*.ts"],
+	migrationsRun: true,
   subscribers: [],
   extra: {
     ssl: {
       rejectUnauthorized: false,
     },
-  },
+	},
 });
