@@ -9,6 +9,15 @@ class charactersService {
     if (result.error) return { error: result.error };
     return { value: result.value };
   };
+
+  getCharactersById = async (id) => {
+    const result = {
+      value: await Character.findOne({ where: {char_id: id} }),
+      error: undefined,
+    };
+    if (result.error) return { error: result.error };
+    return { value: result.value };
+  };
 }
 
 export default new charactersService();
