@@ -1,8 +1,52 @@
 @import "../../../assets/styles/index.scss";
 
+.wrapper {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  .text {
+    @include H32;
+  }
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    .button {
+      cursor: pointer;
+      background: none;
+    }
+  }
+}
 .cards {
   @include container;
   display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.cardsRow {
+  @include container;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.toggleOn {
+  display: flex;
+  @include container;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.toggleOff {
+  display: none;
+  @include container;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;

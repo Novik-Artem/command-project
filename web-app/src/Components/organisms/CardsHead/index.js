@@ -9,16 +9,16 @@ function CardHead() {
     <div className={style.wrapper}>
       <div className={style.text}>Каталог</div>
       <div className={style.buttons}>
-        <div className={style.button}>
+        <button className={style.button}>
           <LazyLoad className={style.image}>
             <img src={firstImage}></img>
           </LazyLoad>
-        </div>
-        <div className={style.button}>
+        </button>
+        <button className={style.button}>
           <LazyLoad className={style.image}>
             <img src={secondImage}></img>
           </LazyLoad>
-        </div>
+        </button>
       </div>
     </div>
   );

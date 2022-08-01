@@ -1,5 +1,5 @@
 import React from "react";
-import Baner from "../organisms/Baner/index";
+import Baner from "../../organisms/Baner/index";
 
 function Main() {
   return (

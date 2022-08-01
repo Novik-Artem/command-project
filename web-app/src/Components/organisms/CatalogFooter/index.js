@@ -7,7 +7,7 @@ function CatalogFooter() {
   return (
     <div className={style.wrapper}>
       <ScrollCard />
-      <AmountCard />
+      
     </div>
   );
 }

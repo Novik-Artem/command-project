@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Burger() {
   return (
-    <Link to="/cards-page" className={style.catalog}>
+    <Link to="/catalog" className={style.catalog}>
       <LazyLoad>
         <img src={img}></img>
       </LazyLoad>

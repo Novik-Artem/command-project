@@ -4,6 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   characters: [],
   isGetCharactersError: false,
+  isGetPersonError: false,
+  person: [],
 };
 
 export const cardinfo = createSlice({
@@ -15,6 +17,12 @@ export const cardinfo = createSlice({
     },
     setCharactersError(state, { payload }) {
       state.isGetCharactersError = payload;
+    },
+    setPerson(state, { payload }) {
+      state.person = payload;
+    },
+    setPersonError(state, { payload }) {
+      state.isGetPersonError = payload;
     },
   },
 });
