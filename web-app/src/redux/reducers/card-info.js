@@ -6,6 +6,7 @@ const initialState = {
   isGetCharactersError: false,
   isGetPersonError: false,
   person: [],
+  loader: false,
 };
 
 export const cardinfo = createSlice({
@@ -23,6 +24,9 @@ export const cardinfo = createSlice({
     },
     setPersonError(state, { payload }) {
       state.isGetPersonError = payload;
+    },
+    setLoading(state, { payload }) {
+      state.loader = payload;
     },
   },
 });

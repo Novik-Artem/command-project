@@ -12,6 +12,7 @@ const CardPageContainer = () => {
     dispatch(getPersonFromApi(id));
   }, []);
   const person = useSelector((state) => state.cardinfo.person);
+  const loader = useSelector((state) => state.cardinfo.loader);
   return (
     <CardPage
       img={person.img}
@@ -19,6 +20,7 @@ const CardPageContainer = () => {
       birthday={person.birthday}
       nickname={person.nickname}
       status={person.status}
+      loader={loader}
     />
   );
 };

@@ -6,32 +6,34 @@ import LazyLoad from "react-lazy-load";
 import firstImage from "../../../assets/icons/firstStyleCards.svg";
 import secondImage from "../../../assets/icons/secondStyleCards.svg";
 import { useState } from "react";
+import Loader from "../../atoms/Loader";
+import ScrollCard from "../../molecules/ScrollCard";
 
-function CardList({ persons }) {
-
+function CardList({ persons, loader }) {
   const [toggle, setToggle] = useState(true);
 
   const changeToggle = () => {
     setToggle(!toggle);
   };
-
-  return (
+  return loader ? (
+    <Loader />
+  ) : (
     <div>
       <div className={style.wrapper}>
-      <div className={style.text}>Каталог</div>
-      <div className={style.buttons}>
-        <button className={style.button} onClick={changeToggle}>
-          <LazyLoad className={style.image}>
-            <img src={firstImage}></img>
-          </LazyLoad>
-        </button>
-        <button className={style.button} onClick={changeToggle}>
-          <LazyLoad className={style.image}>
-            <img src={secondImage}></img>
-          </LazyLoad>
-        </button>
+        <div className={style.text}>Каталог</div>
+        <div className={style.buttons}>
+          <button className={style.button} onClick={changeToggle}>
+            <LazyLoad className={style.image}>
+              <img src={firstImage}></img>
+            </LazyLoad>
+          </button>
+          <button className={style.button} onClick={changeToggle}>
+            <LazyLoad className={style.image}>
+              <img src={secondImage}></img>
+            </LazyLoad>
+          </button>
+        </div>
       </div>
-    </div>
       <div className={toggle ? style.cards : style.toggleOff}>
         {persons.map((card) => (
           <Card
@@ -55,6 +57,9 @@ function CardList({ persons }) {
             key={card.char_id}
           />
         ))}
+      </div>
+      <div className={style.footer}>
+        <ScrollCard />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 @import "../../../assets/styles/index.scss";
 
 .wrapper {
+  position: relative;
   @include container;
   display: flex;
   align-items: center;
@@ -16,6 +17,11 @@
       cursor: pointer;
       background: none;
     }
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 .cards {

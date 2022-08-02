@@ -10,7 +10,8 @@ const CardContainer = () => {
     dispatch(getCharactersFromApi());
   }, []);
   const persons = useSelector((state) => state.cardinfo.characters);
-  return <CardList persons={persons} />;
+  const loader = useSelector((state) => state.cardinfo.loader);
+  return <CardList persons={persons} loader={loader} />;
 };
 
 export const container = CardContainer;
