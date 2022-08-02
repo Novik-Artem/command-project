@@ -1,0 +1,10 @@
+@import "../../../assets/styles/index.scss";
+
+.cards {
+  @include container;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
