@@ -1,0 +1,43 @@
+@import "../../../assets/styles/index.scss";
+
+.wrapper {
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: $white;
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    .image {
+      max-width: 7.5rem;
+      max-height: 7.5rem;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+      }
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex: 1 1 auto;
+      .status {
+        max-width: 8rem;
+        max-height: 2rem;
+        @include H12;
+        padding: 0.5rem 0.75rem;
+        background-color: $statusBack;
+        color: $statusText;
+        text-align: center;
+      }
+      .name {
+        @include H16;
+      }
+      .data {
+        @include H12;
+      }
+    }
+  }
+}

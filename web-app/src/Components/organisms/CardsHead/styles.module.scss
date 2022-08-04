@@ -1,0 +1,21 @@
+@import "../../../assets/styles/index.scss";
+
+.wrapper {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  .text {
+    @include H32;
+  }
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    .button {
+      cursor: pointer;
+      background: none;
+    }
+  }
+}
+
