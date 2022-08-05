@@ -7,6 +7,8 @@ const initialState = {
   isGetPersonError: false,
   person: [],
   loader: false,
+  numbers: [5,10,15,20],
+  limit: 10,
 };
 
 export const cardinfo = createSlice({
@@ -15,6 +17,7 @@ export const cardinfo = createSlice({
   reducers: {
     setCharacters(state, { payload }) {
       state.characters = payload;
+      state.limit = payload.number;
     },
     setCharactersError(state, { payload }) {
       state.isGetCharactersError = payload;

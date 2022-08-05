@@ -22,12 +22,12 @@ function CardList({ persons, loader }) {
       <div className={style.wrapper}>
         <div className={style.text}>Каталог</div>
         <div className={style.buttons}>
-          <button className={style.button} onClick={changeToggle}>
+          <button className={style.button} disabled={!toggle} onClick={changeToggle}>
             <LazyLoad className={style.image}>
               <img src={firstImage}></img>
             </LazyLoad>
           </button>
-          <button className={style.button} onClick={changeToggle}>
+          <button className={style.button} disabled={toggle} onClick={changeToggle}>
             <LazyLoad className={style.image}>
               <img src={secondImage}></img>
             </LazyLoad>

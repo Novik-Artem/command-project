@@ -1,10 +1,10 @@
 import { cardinfo } from "../reducers/card-info";
 import Core from "../../repository";
 
-export const getCharactersFromApi = () => async (dispatch) => {
+export const getCharactersFromApi = (number) => async (dispatch) => {
   dispatch(cardinfo.actions.setLoading(true));
   try {
-    const { value, error } = await Core.Caracters.getPersons();
+    const { value, error } = await Core.Caracters.getPersons(number);
     if (error || !value) {
       dispatch(cardinfo.actions.setCharactersError(true));
     } else {
@@ -29,3 +29,4 @@ export const getPersonFromApi = (id) => async (dispatch) => {
   }
   dispatch(cardinfo.actions.setLoading(false));
 };
+

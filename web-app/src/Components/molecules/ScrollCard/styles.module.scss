@@ -6,16 +6,30 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15rem;
+  .pages {
+    .button {
+      @include H16;
+      padding: 0.25rem 0.75rem;
+      background: none;
+    }
+  }
   .pages,
   .amount {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
-    button {
-      @include H16;
-      padding: 0.25rem 0.75rem;
-      background: none;
+    .buttons {
+      .number {
+        @include H16;
+        padding: 0.25rem 0.75rem;
+        background: none;
+      }
+      .currentNumber {
+        @include H16;
+        padding: 0.25rem 0.75rem;
+        border: 0.0625rem solid black;
+      }
       img {
         display: flex;
         align-self: flex-end;
