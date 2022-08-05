@@ -29,4 +29,18 @@ export const getPersonFromApi = (id) => async (dispatch) => {
   }
   dispatch(cardinfo.actions.setLoading(false));
 };
+export const getPersonData = (name) => async (dispatch) => {
+  dispatch(cardinfo.actions.setLoading(true));
+  try {
+    const { value, error } = await Core.Caracters.getPersonData(name);
+    if (error || !value) {
+      dispatch(cardinfo.actions.setPersonError(true));
+    } else {
+      dispatch(cardinfo.actions.foundPerson(value));
+    }
+  } catch (error) {
+    console.log("Action error!");
+  }
+  dispatch(cardinfo.actions.setLoading(false));
+};
 

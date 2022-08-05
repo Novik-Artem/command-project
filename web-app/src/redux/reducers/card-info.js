@@ -9,6 +9,7 @@ const initialState = {
   loader: false,
   numbers: [5,10,15,20],
   limit: 10,
+  foundedPerson: null,
 };
 
 export const cardinfo = createSlice({
@@ -30,6 +31,10 @@ export const cardinfo = createSlice({
     },
     setLoading(state, { payload }) {
       state.loader = payload;
+    },
+    foundPerson(state, { payload }) {
+      state.foundedPerson = payload;
+      console.log(state.foundedPerson);
     },
   },
 });
