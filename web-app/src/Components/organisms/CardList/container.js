@@ -8,7 +8,7 @@ const CardContainer = () => {
   const limit = useSelector((state) => state.cardinfo.limit);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCharactersFromApi());
+    dispatch(getCharactersFromApi(limit));
   }, [limit]);
   const persons = useSelector((state) => state.cardinfo.characters);
   const loader = useSelector((state) => state.cardinfo.loader);

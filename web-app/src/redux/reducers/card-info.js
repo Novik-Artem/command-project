@@ -8,7 +8,7 @@ const initialState = {
   person: [],
   loader: false,
   numbers: [5,10,15,20],
-  limit: 10,
+  limit: 9,
   foundedPerson: null,
 };
 
@@ -18,7 +18,6 @@ export const cardinfo = createSlice({
   reducers: {
     setCharacters(state, { payload }) {
       state.characters = payload;
-      state.limit = payload.number;
     },
     setCharactersError(state, { payload }) {
       state.isGetCharactersError = payload;
@@ -35,6 +34,9 @@ export const cardinfo = createSlice({
     foundPerson(state, { payload }) {
       state.foundedPerson = payload;
       console.log(state.foundedPerson);
+    },
+    setAmountCards(state, { payload }) {
+      state.limit = payload;
     },
   },
 });

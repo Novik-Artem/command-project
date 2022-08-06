@@ -1,13 +1,13 @@
 import Connector from "../connector";
 
 class Caracters {
-  getPersons = async (number) => {
+  getPersons = async (limit) => {
     const result = {
       value: null,
       error: null,
     };
     try {
-      const response = await Connector.connector.get(`characters?limit=${number}`);
+      const response = await Connector.connector.get(`characters?limit=${limit}`);
       result.value = response.data;
     } catch (error) {
       result.error = error;
