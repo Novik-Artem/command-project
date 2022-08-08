@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
   characters: [],
   isGetCharactersError: false,
   isGetPersonError: false,
   person: [],
   loader: false,
-  numbers: [5,10,15,20],
+  numbers: [5, 10, 15, 20],
   limit: 9,
   foundedPerson: null,
+  pages: [],
+  currentPage: 1,
+  totalCardAmount: 0,
 };
 
 export const cardinfo = createSlice({
@@ -38,7 +40,12 @@ export const cardinfo = createSlice({
     setAmountCards(state, { payload }) {
       state.limit = payload;
     },
+    setTotalCardsAmount(state, { payload }) {
+      state.totalCardAmount = payload;
+    },
+    setCurentPage(state, { payload }) {
+      state.currentPage = payload;
+    },
   },
 });
 export default cardinfo.reducer;
-

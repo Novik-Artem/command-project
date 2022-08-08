@@ -8,6 +8,7 @@ import secondImage from "../../../assets/icons/secondStyleCards.svg";
 import { useState } from "react";
 import Loader from "../../atoms/Loader";
 import ScrollCard from "../../molecules/ScrollCard";
+import PaginationItems from "../../molecules/Pagination";
 
 function CardList({ persons, loader }) {
   const [toggle, setToggle] = useState(true);
@@ -22,12 +23,20 @@ function CardList({ persons, loader }) {
       <div className={style.wrapper}>
         <div className={style.text}>Каталог</div>
         <div className={style.buttons}>
-          <button className={style.button} disabled={!toggle} onClick={changeToggle}>
+          <button
+            className={style.button}
+            disabled={!toggle}
+            onClick={changeToggle}
+          >
             <LazyLoad className={style.image}>
               <img src={firstImage}></img>
             </LazyLoad>
           </button>
-          <button className={style.button} disabled={toggle} onClick={changeToggle}>
+          <button
+            className={style.button}
+            disabled={toggle}
+            onClick={changeToggle}
+          >
             <LazyLoad className={style.image}>
               <img src={secondImage}></img>
             </LazyLoad>
@@ -59,6 +68,7 @@ function CardList({ persons, loader }) {
         ))}
       </div>
       <div className={style.footer}>
+        <PaginationItems />
         <ScrollCard />
       </div>
     </div>

@@ -46,3 +46,18 @@ export const getPersonData = (name) => async (dispatch) => {
   }
   dispatch(cardinfo.actions.setLoading(false));
 };
+export const getTotalCardsAmount = () => async (dispatch) => {
+  try {
+    const { value, error } = await Core.Caracters.getTotalCardsAmount();
+    if (error || !value) {
+      dispatch(cardinfo.actions.setPersonError(true));
+    } else {
+      dispatch(cardinfo.actions.setTotalCardsAmount(value));
+    }
+  } catch (error) {
+    console.log("Action error!");
+  }
+};
+export const updatePage = (page) => async (dispatch) => {
+  dispatch(cardinfo.actions.setCurentPage(page));
+};

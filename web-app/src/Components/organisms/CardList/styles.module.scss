@@ -18,11 +18,13 @@
       background: none;
     }
   }
-  .footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+}
+.footer {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rem;
 }
 .cards {
   @include container;

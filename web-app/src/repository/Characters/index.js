@@ -41,5 +41,18 @@ class Caracters {
     }
     return result;
   };
+  getTotalCardsAmount = async () => {
+    const result = {
+      value: null,
+      error: null,
+    };
+    try {
+      const response = await Connector.connector.get("/characters");
+      result.value = response.data.length;
+    } catch (error) {
+      result.error = error;
+    }
+    return result;
+  };
 }
 export default new Caracters();

@@ -1,0 +1,21 @@
+@import "../../../assets/styles/index.scss";
+
+.pages {
+  display: flex;
+  gap: 0.5rem;
+  button {
+    background: none;
+  }
+  .page {
+    @include H16;
+    padding: 0.25rem 0.75rem;
+    background: none;
+  }
+  .currentPage {
+    @include H16;
+    padding: 0.25rem 0.75rem;
+    box-shadow: 0px 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+    border-radius: 0.25rem;
+    background: $white;
+  }
+}
