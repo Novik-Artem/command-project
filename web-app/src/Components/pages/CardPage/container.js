@@ -6,7 +6,6 @@ import { getPersonFromApi } from "../../../redux/actions/card-info";
 
 const CardPageContainer = () => {
   const { id } = useParams();
-  console.log(id);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPersonFromApi(id));

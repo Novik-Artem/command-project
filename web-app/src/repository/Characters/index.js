@@ -1,13 +1,19 @@
 import Connector from "../connector";
 
 class Caracters {
-  getPersons = async (limit) => {
+  getPersons = async (limit, offset, currentPage) => {
     const result = {
       value: null,
       error: null,
     };
     try {
-      const response = await Connector.connector.get(`characters?limit=${limit}`);
+      const response = await Connector.connector.get(`characters`, {
+        params: {
+          limit,
+          offset,
+          currentPage,
+        },
+      });
       result.value = response.data;
     } catch (error) {
       result.error = error;
@@ -35,7 +41,7 @@ class Caracters {
     try {
       const response = await Connector.connector.get(`characters?name=${name}`);
       result.value = response.data[0];
-      console.log(response.data)
+      console.log(response.data);
     } catch (error) {
       result.error = error;
     }

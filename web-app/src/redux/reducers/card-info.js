@@ -12,6 +12,7 @@ const initialState = {
   pages: [],
   currentPage: 1,
   totalCardAmount: 0,
+  offset: 0,
 };
 
 export const cardinfo = createSlice({
@@ -45,6 +46,22 @@ export const cardinfo = createSlice({
     },
     setCurentPage(state, { payload }) {
       state.currentPage = payload;
+      state.offset = (state.currentPage - 1) * state.limit;
+    },
+    setPagesCount(state) {
+      state.pages = [];
+      let pagesCount = Math.ceil(state.totalCardAmount / state.limit);
+      for (let i = 1; i <= pagesCount; i++) {
+        state.pages.push(i);
+      }
+    },
+    nextPage(state) {
+      state.offset = state.offset + state.limit;
+      state.currentPage = state.currentPage + 1;
+    },
+    prevPage(state) {
+      state.offset = state.offset - state.limit;
+      state.currentPage = state.currentPage - 1;
     },
   },
 });

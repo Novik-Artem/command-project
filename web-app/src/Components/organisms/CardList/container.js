@@ -6,10 +6,12 @@ import CardList from "./component";
 
 const CardContainer = () => {
   const limit = useSelector((state) => state.cardinfo.limit);
+  const currentPage = useSelector((state) => state.cardinfo.currentPage);
+  const offset = useSelector((state) => state.cardinfo.offset);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCharactersFromApi(limit));
-  }, [limit]);
+    dispatch(getCharactersFromApi(limit, offset, currentPage));
+  }, [limit, offset, currentPage]);
   const persons = useSelector((state) => state.cardinfo.characters);
   const loader = useSelector((state) => state.cardinfo.loader);
   return <CardList persons={persons} loader={loader} />;

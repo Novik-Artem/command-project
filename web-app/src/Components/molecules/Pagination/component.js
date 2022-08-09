@@ -4,7 +4,7 @@ import LazyLoad from "react-lazy-load";
 import leftArrow from "../../../assets/icons/leftArrow.svg";
 import rightArrow from "../../../assets/icons/rightArrow.svg";
 
-function PaginationItems({ pages, currentPage, setPage }) {
+function PaginationItems({ pages, currentPage, setPage, nextPage, prevPage }) {
   return (
     <div className={style.pages}>
       {pages.map((page) => {
@@ -17,12 +17,12 @@ function PaginationItems({ pages, currentPage, setPage }) {
           </button>
         );
       })}
-      <button>
+      <button onClick={() => prevPage()}>
         <LazyLoad>
           <img src={leftArrow} />
         </LazyLoad>
       </button>
-      <button>
+      <button onClick={() => nextPage()}>
         <LazyLoad>
           <img src={rightArrow} />
         </LazyLoad>
