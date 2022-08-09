@@ -12,7 +12,7 @@ class charactersService {
 
   getCharactersById = async (id) => {
     const result = {
-      value: await Character.findOne({ where: {char_id: id} }),
+			value: await Character.findOne({ where: { char_id: id } }),
       error: undefined,
     };
     if (result.error) return { error: result.error };

@@ -1,7 +1,7 @@
 import repository from "./repository";
 import app from "./delivery";
 
-const PORT = 7000;
+const PORT = 9000;
 
 async function main() {
   await repository.connect();
