@@ -1,7 +1,6 @@
 import express, { Router, Request, Response } from "express";
 import UC from "../../usecases";
 import cors from "cors";
-import { json } from "stream/consumers";
 
 const router: Router = express.Router();
 
