@@ -39,5 +39,3 @@ router.get("/quotes/random", cors(), async (req: Request, res: Response) => {
 });
 
 export default router;
-
-//?author=Jesse+Pinkman
