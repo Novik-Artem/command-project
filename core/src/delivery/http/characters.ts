@@ -16,7 +16,7 @@ router.get("/characters", cors(), async (req: Request, res: Response) => {
 
   const limit = Number(req.query.limit);
   const offset = Number(req.query.offset);
-  let page = Number(req.query.page) || 1;
+	let page = Number(req.query.page);
 
   if (limit && limit > 0 && page) {
     let countCharacters = value.length;
