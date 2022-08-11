@@ -7,7 +7,20 @@ const router: Router = express.Router();
 router.use(cors());
 
 router.get("/characters", cors(), async (req: Request, res: Response) => {
-  const { value, error } = await UC.APICharacters.getCharacters();
+	const { value, error } = await UC.APICharacters.getCharacters();
+  if (error) {
+    res.status(500).json(error || new Error("UC undefined error"));
+    return;
+  }
+  res.status(200).json(value);
+});
+
+router.get("/characters/limit", cors(), async (req: Request, res: Response) => {
+	const { value, error } = await UC.APICharacters.getCharacters();
+
+	let limit = 10
+	value.length = limit;
+	
   if (error) {
     res.status(500).json(error || new Error("UC undefined error"));
     return;
