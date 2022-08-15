@@ -10,9 +10,8 @@ import Loader from "../../atoms/Loader";
 import ScrollCard from "../../molecules/ScrollCard";
 import PaginationItems from "../../molecules/Pagination";
 
-function CardList({ persons, loader }) {
+function CardList({ persons, loader}) {
   const [toggle, setToggle] = useState(true);
-
   const changeToggle = () => {
     setToggle(!toggle);
   };

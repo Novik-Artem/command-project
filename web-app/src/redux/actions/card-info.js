@@ -58,6 +58,4 @@ export const getTotalCardsAmount = () => async (dispatch) => {
     console.log("Action error!");
   }
 };
-export const updatePage = (page) => async (dispatch) => {
-  dispatch(cardinfo.actions.setCurentPage(page));
-};
+

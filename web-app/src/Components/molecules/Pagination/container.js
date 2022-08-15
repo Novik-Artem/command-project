@@ -15,16 +15,16 @@ const Pagination = () => {
   );
   const dispatch = useDispatch();
   const setPage = (page) => {
-    dispatch(updatePage(page));
+    dispatch(cardinfo.actions.updatePage(page));
   };
   const nextPage = () => {
     if (totalCardAmount !== currentPage) {
-      dispatch(nextPage());
+      dispatch(cardinfo.actions.nextPage());
     }
   };
   const prevPage = () => {
     if (currentPage !== 1) {
-      dispatch(prevPage());
+      dispatch(cardinfo.actions.prevPage());
     }
   };
   useEffect(() => {

@@ -27,7 +27,7 @@ class Caracters {
     };
     try {
       const response = await Connector.connector.get(`characters/${id}`);
-      result.value = response.data[0];
+      result.value = response.data;
     } catch (error) {
       result.error = error;
     }
@@ -40,8 +40,7 @@ class Caracters {
     };
     try {
       const response = await Connector.connector.get(`characters?name=${name}`);
-      result.value = response.data[0];
-      console.log(response.data);
+      result.value = response.data;
     } catch (error) {
       result.error = error;
     }

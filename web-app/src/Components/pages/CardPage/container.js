@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPersonFromApi } from "../../../redux/actions/card-info";
+import { getQuotesFromApi } from "../../../redux/actions/quotes";
 
 const CardPageContainer = () => {
   const { id } = useParams();
@@ -11,6 +12,10 @@ const CardPageContainer = () => {
     dispatch(getPersonFromApi(id));
   }, []);
   const person = useSelector((state) => state.cardinfo.person);
+  useEffect(() => {
+    dispatch(getQuotesFromApi(person.name));
+  }, [person]);
+  const quotes = useSelector((state) => state.quotes.quotes);
   const loader = useSelector((state) => state.cardinfo.loader);
   return (
     <CardPage
@@ -20,6 +25,7 @@ const CardPageContainer = () => {
       nickname={person.nickname}
       status={person.status}
       loader={loader}
+      quotes={quotes}
     />
   );
 };

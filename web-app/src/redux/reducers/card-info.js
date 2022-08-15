@@ -8,7 +8,7 @@ const initialState = {
   loader: false,
   numbers: [5, 10, 15, 20],
   limit: 9,
-  foundedPerson: null,
+  foundedPersons: [],
   pages: [],
   currentPage: 1,
   totalCardAmount: 0,
@@ -35,8 +35,8 @@ export const cardinfo = createSlice({
       state.loader = payload;
     },
     foundPerson(state, { payload }) {
-      state.foundedPerson = payload;
-      console.log(state.foundedPerson);
+      state.foundedPersons = payload;
+      console.log(state.foundedPersons);
     },
     setAmountCards(state, { payload }) {
       state.limit = payload;
@@ -44,7 +44,7 @@ export const cardinfo = createSlice({
     setTotalCardsAmount(state, { payload }) {
       state.totalCardAmount = payload;
     },
-    setCurentPage(state, { payload }) {
+    updatePage(state, { payload }) {
       state.currentPage = payload;
       state.offset = (state.currentPage - 1) * state.limit;
     },
