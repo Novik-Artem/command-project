@@ -16,7 +16,8 @@ router.get("/characters", cors(), async (req: Request, res: Response) => {
 
   const limit = Number(req.query.limit);
   const offset = Number(req.query.offset);
-	let page = Number(req.query.page);
+  const name = String(req.query.name);
+  let page = Number(req.query.page);
 
   if (limit && limit > 0 && page) {
     let countCharacters = value.length;
@@ -37,6 +38,11 @@ router.get("/characters", cors(), async (req: Request, res: Response) => {
     res.status(200).json(newValLimit);
   } else if (limit && limit > 0) {
     const newArray = value.slice(0, limit);
+    res.status(200).json(newArray);
+  } else if (name) {
+    const newArray = value.filter((item) => {
+      return item.name.includes(name);
+    });
     res.status(200).json(newArray);
   } else {
     res.status(200).json(value);
