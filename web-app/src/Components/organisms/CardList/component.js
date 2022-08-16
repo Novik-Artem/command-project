@@ -10,7 +10,7 @@ import Loader from "../../atoms/Loader";
 import ScrollCard from "../../molecules/ScrollCard";
 import PaginationItems from "../../molecules/Pagination";
 
-function CardList({ persons, loader}) {
+function CardList({ persons, loader, foundedPersons }) {
   const [toggle, setToggle] = useState(true);
   const changeToggle = () => {
     setToggle(!toggle);
@@ -42,29 +42,59 @@ function CardList({ persons, loader}) {
           </button>
         </div>
       </div>
-      <div className={toggle ? style.cards : style.toggleOff}>
-        {persons.map((card) => (
-          <Card
-            id={card.char_id}
-            img={card.img}
-            name={card.name}
-            birthday={card.birthday}
-            status={card.status}
-            key={card.char_id}
-          />
-        ))}
-      </div>
-      <div className={!toggle ? style.toggleOn : style.cardsRow}>
-        {persons.map((card) => (
-          <CardTable
-            id={card.char_id}
-            img={card.img}
-            name={card.name}
-            birthday={card.birthday}
-            status={card.status}
-            key={card.char_id}
-          />
-        ))}
+      {/* {foundedPersons}?
+      <div className={style.foundedPersons}>
+        <div className={toggle ? style.cards : style.toggleOff}>
+          {persons.map((card) => (
+            <Card
+              id={card.char_id}
+              img={card.img}
+              name={card.name}
+              birthday={card.birthday}
+              status={card.status}
+              key={card.char_id}
+            />
+          ))}
+        </div>
+        <div className={!toggle ? style.toggleOn : style.cardsRow}>
+          {persons.map((card) => (
+            <CardTable
+              id={card.char_id}
+              img={card.img}
+              name={card.name}
+              birthday={card.birthday}
+              status={card.status}
+              key={card.char_id}
+            />
+          ))}
+        </div>
+      </div>{" "}
+      : */}
+      <div className={style.persons}>
+        <div className={toggle ? style.cards : style.toggleOff}>
+          {persons.map((card) => (
+            <Card
+              id={card.char_id}
+              img={card.img}
+              name={card.name}
+              birthday={card.birthday}
+              status={card.status}
+              key={card.char_id}
+            />
+          ))}
+        </div>
+        <div className={!toggle ? style.toggleOn : style.cardsRow}>
+          {persons.map((card) => (
+            <CardTable
+              id={card.char_id}
+              img={card.img}
+              name={card.name}
+              birthday={card.birthday}
+              status={card.status}
+              key={card.char_id}
+            />
+          ))}
+        </div>
       </div>
       <div className={style.footer}>
         <PaginationItems />

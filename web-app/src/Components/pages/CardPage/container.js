@@ -4,12 +4,14 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPersonFromApi } from "../../../redux/actions/card-info";
 import { getQuotesFromApi } from "../../../redux/actions/quotes";
+import { cardinfo } from "../../../redux/reducers/card-info";
 
 const CardPageContainer = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPersonFromApi(id));
+    dispatch(cardinfo.actions.clearFoundedPersons())
   }, []);
   const person = useSelector((state) => state.cardinfo.person);
   useEffect(() => {

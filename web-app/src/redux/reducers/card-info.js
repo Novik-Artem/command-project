@@ -63,6 +63,9 @@ export const cardinfo = createSlice({
       state.offset = state.offset - state.limit;
       state.currentPage = state.currentPage - 1;
     },
+    clearFoundedPersons(state) {
+      state.foundedPersons = null;
+    },
   },
 });
 export default cardinfo.reducer;

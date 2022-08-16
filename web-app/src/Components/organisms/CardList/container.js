@@ -14,7 +14,14 @@ const CardContainer = () => {
   }, [limit, offset, currentPage]);
   const persons = useSelector((state) => state.cardinfo.characters);
   const loader = useSelector((state) => state.cardinfo.loader);
-  return <CardList persons={persons} loader={loader} />;
+  const foundedPersons = useSelector((state) => state.cardinfo.foundedPersons);
+  return (
+    <CardList
+      persons={persons}
+      loader={loader}
+      foundedPersons={foundedPersons}
+    />
+  );
 };
 
 export const container = CardContainer;
