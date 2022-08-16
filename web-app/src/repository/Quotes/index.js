@@ -10,10 +10,7 @@ class Quotes {
       const response = await Connector.connector.get(
         `quotes/random?author=${name}`
       );
-      let info = response.data;
-      info.length > 0
-        ? (result.value = response.data)
-        : (result.value = "Нет цитат");
+      result.value = response.data.quote ? response.data.quote : "Нет цитаты!";
     } catch (error) {
       result.error = error;
     }
