@@ -13,6 +13,7 @@ const initialState = {
   currentPage: 1,
   totalCardAmount: 0,
   offset: 0,
+  activeCatalog: false,
 };
 
 export const cardinfo = createSlice({
@@ -65,6 +66,9 @@ export const cardinfo = createSlice({
     },
     clearFoundedPersons(state) {
       state.foundedPersons = null;
+    },
+    changeActiveCatalog(state) {
+      state.activeCatalog = !state.activeCatalog;
     },
   },
 });

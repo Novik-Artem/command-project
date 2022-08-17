@@ -25,6 +25,9 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15rem;
+  @include custom(440px) {
+    flex-direction: column;
+  }
 }
 .cards {
   @include container;
@@ -32,6 +35,10 @@
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 4rem;
+  justify-content: center;
+  @include custom(1191px) {
+    flex-direction: column;
+  }
 }
 .cardsRow {
   @include container;

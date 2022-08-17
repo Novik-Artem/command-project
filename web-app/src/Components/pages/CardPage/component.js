@@ -5,12 +5,21 @@ import arrow from "../../../assets/icons/leftArrow.svg";
 import { Link } from "react-router-dom";
 import Loader from "../../atoms/Loader";
 
-function CardPage({ img, name, birthday, nickname, status, loader, quotes }) {
+function CardPage({
+  img,
+  name,
+  birthday,
+  nickname,
+  status,
+  loader,
+  quotes,
+  changeActive,
+}) {
   return loader ? (
     <Loader />
   ) : (
     <div className={style.wrapper}>
-      <Link to="/catalog" className={style.button}>
+      <Link to="/catalog" className={style.button} onClick={changeActive}>
         <div className={style.imageButton}>
           <LazyLoad>
             <img src={arrow} />
@@ -37,7 +46,8 @@ function CardPage({ img, name, birthday, nickname, status, loader, quotes }) {
           </div>
           <div className={style.quote}>
             {" "}
-            <span>Quote: </span>{quotes}
+            <span>Quote: </span>
+            {quotes}
           </div>
         </div>
       </div>

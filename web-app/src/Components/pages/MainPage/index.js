@@ -1,12 +1,14 @@
 import React from "react";
-import Baner from "../../organisms/Baner/index";
+import style from "./styles.module.scss";
+import img from "../../../assets/images/baner.webp";
+import LazyLoad from "react-lazy-load";
 
-function Main() {
+function MainPage() {
   return (
-    <div>
-      <Baner />
-    </div>
+      <LazyLoad className={style.baner}>
+        <img src={img} className={style.image}></img>
+      </LazyLoad>
   );
 }
 
-export default Main;
+export default MainPage;

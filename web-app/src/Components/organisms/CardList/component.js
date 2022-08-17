@@ -42,60 +42,61 @@ function CardList({ persons, loader, foundedPersons }) {
           </button>
         </div>
       </div>
-      {/* {foundedPersons}?
-      <div className={style.foundedPersons}>
-        <div className={toggle ? style.cards : style.toggleOff}>
-          {persons.map((card) => (
-            <Card
-              id={card.char_id}
-              img={card.img}
-              name={card.name}
-              birthday={card.birthday}
-              status={card.status}
-              key={card.char_id}
-            />
-          ))}
+      {foundedPersons.length === 0 ? (
+        <div className={style.persons}>
+          <div className={toggle ? style.cards : style.toggleOff}>
+            {persons.map((card) => (
+              <Card
+                id={card.char_id}
+                img={card.img}
+                name={card.name}
+                birthday={card.birthday}
+                status={card.status}
+                key={card.char_id}
+              />
+            ))}
+          </div>
+          <div className={!toggle ? style.toggleOn : style.cardsRow}>
+            {persons.map((card) => (
+              <CardTable
+                id={card.char_id}
+                img={card.img}
+                name={card.name}
+                birthday={card.birthday}
+                status={card.status}
+                key={card.char_id}
+              />
+            ))}
+          </div>
         </div>
-        <div className={!toggle ? style.toggleOn : style.cardsRow}>
-          {persons.map((card) => (
-            <CardTable
-              id={card.char_id}
-              img={card.img}
-              name={card.name}
-              birthday={card.birthday}
-              status={card.status}
-              key={card.char_id}
-            />
-          ))}
+      ) : (
+        <div className={style.foundedPersons}>
+          <div className={toggle ? style.cards : style.toggleOff}>
+            {foundedPersons.map((card) => (
+              <Card
+                id={card.char_id}
+                img={card.img}
+                name={card.name}
+                birthday={card.birthday}
+                status={card.status}
+                key={card.char_id}
+              />
+            ))}
+          </div>
+          <div className={!toggle ? style.toggleOn : style.cardsRow}>
+            {foundedPersons.map((card) => (
+              <CardTable
+                id={card.char_id}
+                img={card.img}
+                name={card.name}
+                birthday={card.birthday}
+                status={card.status}
+                key={card.char_id}
+              />
+            ))}
+          </div>
         </div>
-      </div>{" "}
-      : */}
-      <div className={style.persons}>
-        <div className={toggle ? style.cards : style.toggleOff}>
-          {persons.map((card) => (
-            <Card
-              id={card.char_id}
-              img={card.img}
-              name={card.name}
-              birthday={card.birthday}
-              status={card.status}
-              key={card.char_id}
-            />
-          ))}
-        </div>
-        <div className={!toggle ? style.toggleOn : style.cardsRow}>
-          {persons.map((card) => (
-            <CardTable
-              id={card.char_id}
-              img={card.img}
-              name={card.name}
-              birthday={card.birthday}
-              status={card.status}
-              key={card.char_id}
-            />
-          ))}
-        </div>
-      </div>
+      )}
       <div className={style.footer}>
         <PaginationItems />
         <ScrollCard />

@@ -17,6 +17,9 @@ const CardPageContainer = () => {
   useEffect(() => {
     dispatch(getQuotesFromApi(person.name));
   }, [person]);
+  const changeActive = () => {
+    dispatch(cardinfo.actions.changeActiveCatalog());
+  };
   const quotes = useSelector((state) => state.quotes.quotes);
   const loader = useSelector((state) => state.cardinfo.loader);
   return (
@@ -28,6 +31,7 @@ const CardPageContainer = () => {
       status={person.status}
       loader={loader}
       quotes={quotes}
+      changeActive={changeActive}
     />
   );
 };
