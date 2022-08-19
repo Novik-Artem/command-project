@@ -3,12 +3,13 @@ import style from "./styles.module.scss";
 import LazyLoad from "react-lazy-load";
 import img from "../../../assets/icons/search.svg";
 
-function Search({search}) {
+function Search({ search, changeIsVisible }) {
   const [name, setName] = useState("");
   const submit = () => {
-    search (name);
+    search(name);
     setName("");
-  }
+    changeIsVisible();
+  };
   return (
     <div className={style.search}>
       <div className={style.searchField}>

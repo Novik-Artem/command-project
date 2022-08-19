@@ -10,7 +10,7 @@ import Loader from "../../atoms/Loader";
 import ScrollCard from "../../molecules/ScrollCard";
 import PaginationItems from "../../molecules/Pagination";
 
-function CardList({ persons, loader, foundedPersons }) {
+function CardList({ persons, loader, foundedPersons, clearFoundedPersons, isVisible }) {
   const [toggle, setToggle] = useState(true);
   const changeToggle = () => {
     setToggle(!toggle);
@@ -20,7 +20,17 @@ function CardList({ persons, loader, foundedPersons }) {
   ) : (
     <div>
       <div className={style.wrapper}>
-        <div className={style.text}>Каталог</div>
+        <div className={style.leftPart}>
+          <div className={style.text}>Каталог</div>
+          <button
+            className={
+              isVisible ? style.clearButtonHidden : style.clearButtonVisible
+            }
+            onClick={clearFoundedPersons}
+          >
+            Все персонажи
+          </button>
+        </div>
         <div className={style.buttons}>
           <button
             className={style.button}

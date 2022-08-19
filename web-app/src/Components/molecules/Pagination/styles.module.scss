@@ -3,6 +3,11 @@
 .pages {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include custom(366px) {
+    gap: 0.35rem;
+  }
   button {
     background: none;
   }
@@ -10,6 +15,9 @@
     @include H16;
     padding: 0.25rem 0.75rem;
     background: none;
+    @include custom(366px) {
+      @include H12;
+    }
   }
   .currentPage {
     @include H16;
@@ -18,5 +26,8 @@
     border-radius: 0.25rem;
     background: $white;
     color: $yellow;
+    @include custom(366px) {
+      @include H12;
+    }
   }
 }

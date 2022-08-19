@@ -10,6 +10,7 @@ import PaginationItems from "./component";
 const Pagination = () => {
   const currentPage = useSelector((state) => state.cardinfo.currentPage);
   const pages = useSelector((state) => state.cardinfo.pages);
+  console.log(pages);
   const totalCardAmount = useSelector(
     (state) => state.cardinfo.totalCardAmount
   );

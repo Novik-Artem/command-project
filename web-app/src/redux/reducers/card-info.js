@@ -14,6 +14,8 @@ const initialState = {
   totalCardAmount: 0,
   offset: 0,
   activeCatalog: false,
+  filteredPersons:[],
+  isVisible: true,
 };
 
 export const cardinfo = createSlice({
@@ -37,7 +39,6 @@ export const cardinfo = createSlice({
     },
     foundPerson(state, { payload }) {
       state.foundedPersons = payload;
-      console.log(state.foundedPersons);
     },
     setAmountCards(state, { payload }) {
       state.limit = payload;
@@ -65,10 +66,16 @@ export const cardinfo = createSlice({
       state.currentPage = state.currentPage - 1;
     },
     clearFoundedPersons(state) {
-      state.foundedPersons = null;
+      state.foundedPersons = [];
     },
     changeActiveCatalog(state) {
       state.activeCatalog = !state.activeCatalog;
+    },
+    clearFoundedPersons(state) {
+      state.foundedPersons = [];
+    },
+    changeIsVisible(state) {
+      state.isVisible = !state.isVisible;
     },
   },
 });
