@@ -10,6 +10,7 @@ function PaginationItems({ pages, currentPage, setPage, nextPage, prevPage }) {
       {pages.map((page) => {
         return (
           <button
+            key={page}
             className={currentPage === page ? style.currentPage : style.page}
             onClick={() => setPage(page)}
           >
