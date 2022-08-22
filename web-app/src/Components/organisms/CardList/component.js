@@ -8,10 +8,10 @@ import secondImage from "../../../assets/icons/secondStyleCards.svg";
 import { useState } from "react";
 import Loader from "../../atoms/Loader";
 import ScrollCard from "../../molecules/ScrollCard";
+import PaginationItems from "../../molecules/Pagination";
 
-function CardList({ persons, loader }) {
+function CardList({ persons, loader, foundedPersons, clearFoundedPersons, isVisible }) {
   const [toggle, setToggle] = useState(true);
-
   const changeToggle = () => {
     setToggle(!toggle);
   };
@@ -20,45 +20,95 @@ function CardList({ persons, loader }) {
   ) : (
     <div>
       <div className={style.wrapper}>
-        <div className={style.text}>Каталог</div>
+        <div className={style.leftPart}>
+          <div className={style.text}>Каталог</div>
+          <button
+            className={
+              isVisible ? style.clearButtonHidden : style.clearButtonVisible
+            }
+            onClick={clearFoundedPersons}
+          >
+            Все персонажи
+          </button>
+        </div>
         <div className={style.buttons}>
-          <button className={style.button} onClick={changeToggle}>
+          <button
+            className={style.button}
+            disabled={!toggle}
+            onClick={changeToggle}
+          >
             <LazyLoad className={style.image}>
               <img src={firstImage}></img>
             </LazyLoad>
           </button>
-          <button className={style.button} onClick={changeToggle}>
+          <button
+            className={style.button}
+            disabled={toggle}
+            onClick={changeToggle}
+          >
             <LazyLoad className={style.image}>
               <img src={secondImage}></img>
             </LazyLoad>
           </button>
         </div>
       </div>
-      <div className={toggle ? style.cards : style.toggleOff}>
-        {persons.map((card) => (
-          <Card
-            id={card.char_id}
-            img={card.img}
-            name={card.name}
-            birthday={card.birthday}
-            status={card.status}
-            key={card.char_id}
-          />
-        ))}
-      </div>
-      <div className={!toggle ? style.toggleOn : style.cardsRow}>
-        {persons.map((card) => (
-          <CardTable
-            id={card.char_id}
-            img={card.img}
-            name={card.name}
-            birthday={card.birthday}
-            status={card.status}
-            key={card.char_id}
-          />
-        ))}
-      </div>
+      {foundedPersons.length === 0 ? (
+        <div className={style.persons}>
+          <div className={toggle ? style.cards : style.toggleOff}>
+            {persons.map((card) => (
+              <Card
+                id={card.char_id}
+                img={card.img}
+                name={card.name}
+                birthday={card.birthday}
+                status={card.status}
+                key={card.char_id}
+              />
+            ))}
+          </div>
+          <div className={!toggle ? style.toggleOn : style.cardsRow}>
+            {persons.map((card) => (
+              <CardTable
+                id={card.char_id}
+                img={card.img}
+                name={card.name}
+                birthday={card.birthday}
+                status={card.status}
+                key={card.char_id}
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className={style.foundedPersons}>
+          <div className={toggle ? style.cards : style.toggleOff}>
+            {foundedPersons.map((card) => (
+              <Card
+                id={card.char_id}
+                img={card.img}
+                name={card.name}
+                birthday={card.birthday}
+                status={card.status}
+                key={card.char_id}
+              />
+            ))}
+          </div>
+          <div className={!toggle ? style.toggleOn : style.cardsRow}>
+            {foundedPersons.map((card) => (
+              <CardTable
+                id={card.char_id}
+                img={card.img}
+                name={card.name}
+                birthday={card.birthday}
+                status={card.status}
+                key={card.char_id}
+              />
+            ))}
+          </div>
+        </div>
+      )}
       <div className={style.footer}>
+        <PaginationItems />
         <ScrollCard />
       </div>
     </div>

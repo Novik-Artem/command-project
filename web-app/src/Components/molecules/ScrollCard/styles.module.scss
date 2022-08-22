@@ -1,25 +1,38 @@
 @import "../../../assets/styles/index.scss";
 
-.wrapper {
-  @include container;
+.amount {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 15rem;
-  .pages,
-  .amount {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-    button {
+  gap: 0.75rem;
+  @include custom(366px) {
+    gap: 0.35rem;
+  }
+  .text {
+    @include custom(366px) {
+      @include H12;
+    }
+  }
+  .buttons {
+    .number {
       @include H16;
       padding: 0.25rem 0.75rem;
       background: none;
-      img {
-        display: flex;
-        align-self: flex-end;
+      @include custom(366px) {
+        @include H12;
       }
+    }
+    .currentNumber {
+      @include H16;
+      padding: 0.25rem 0.75rem;
+      box-shadow: 0px 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+      border-radius: 0.25rem;
+      background: $white;
+      color: $yellow;
+    }
+    img {
+      display: flex;
+      align-self: flex-end;
     }
   }
 }

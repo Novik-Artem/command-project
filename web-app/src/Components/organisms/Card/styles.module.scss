@@ -12,6 +12,10 @@
     box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     border-radius: 0.25rem;
     overflow: hidden;
+    @include custom(1191px) {
+      max-width: 100%;
+      width: 100%;
+    }
     .image {
       max-width: 7.5rem;
       max-height: 7.5rem;

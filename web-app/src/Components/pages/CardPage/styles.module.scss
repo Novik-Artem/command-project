@@ -18,6 +18,10 @@
       display: flex;
       gap: 3rem;
       margin-bottom: 5rem;
+      @include custom(885px) {
+        flex-direction: column;
+        align-items: center;
+      } 
       .cardImage {
         max-width: 35rem;
         max-height: 35rem;

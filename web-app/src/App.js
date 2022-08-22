@@ -1,9 +1,9 @@
 import React from "react";
-import MainPage from "./components/pages/MainPage";
-import CardsPage from "./components/pages/CardsPage";
-import CardPage from "./components/pages/CardPage";
-import Header from "./components/organisms/Header";
-import Footer from "./components/organisms/Footer";
+import MainPage from "./Components/pages/MainPage";
+import CardsPage from "./Components/pages/CardsPage";
+import CardPage from "./Components/pages/CardPage";
+import Header from "./Components/organisms/Header";
+import Footer from "./Components/organisms/Footer";
 import style from "./app.module.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
